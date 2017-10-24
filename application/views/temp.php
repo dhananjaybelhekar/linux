@@ -54,6 +54,9 @@
       
     var todoList = this;
     $scope.states=[];
+    $scope.stateChange= function(){
+      location.replace('/'+$scope.selected);
+    }
     $scope.modelOptions = {
     debounce: {
       default: 500,
@@ -68,7 +71,6 @@
       return _selected;
     }
   };
-//    $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
     $scope.$watch('selected', function(value, ov) {
         
         var zzz = $resource('/api/:id',null,{ 'get':{method:'GET',isArray: true}});
@@ -84,18 +86,6 @@
         $scope.states=[];
 });
     
-//     $scope.getLocation=function(value){
-//         var zzz = $resource('/api/:id',null,{ 'get':{method:'GET',isArray: true}});
-//         if(value != '' && value != undefined)
-//         {
-//            zzz.get({'id':value}).$promise.then(function(res){
-//             //return res;
-//             $scope.states = res;
-//           })
-//       }
-//       else 
-//       $scope.states = '';
-//     }
 });
 
 </script>
@@ -113,22 +103,11 @@ if(count($data) > 0)
   <div class="row">
   <div class="col-md-2"></div>
      <div class="col-md-8">         
-         
-         <!--ng-keypress="todoList.getData(todoList.selected)"
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search">   -->
          <input type="text"
          ng-model="selected"
          uib-typeahead="state for state in states | filter:$viewValue | limitTo:8"
          class="form-control">
-<!-- {{asyncSelected}}
-         <input type="text" 
-         ng-model="asyncSelected" 
-         placeholder="Locations loaded via $http" 
-         uib-typeahead="address for address in getLocation($viewValue)"  
-         
-         
-         class="form-control">-->
-        <button type="submit" class="btn btn-primary">search</button>
+        <button type="submit" class="btn btn-primary" ng-click="stateChange()">search</button>
         
     </div>
     <div class="col-md-2"></div>
@@ -137,7 +116,6 @@ if(count($data) > 0)
   </center>
 </div>
     
-
 <?php 	
 $arr = "";
 if(count($data) > 0)
