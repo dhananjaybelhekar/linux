@@ -1,0 +1,27 @@
+{
+  "name": "public_html",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.6",
+    "bootstrap": "v4.0.0-beta",
+    "ui-bootstrap": "^2.5.6",
+    "angular-resource": "^1.6.6",
+    "angular-bootstrap": "^2.5.0",
+    "angular-animate": "^1.6.6",
+    "angular-touch": "^1.6.6",
+    "angular-sanitize": "^1.6.6"
+  },
+  "authors": [
+    "dhananjay belhekar <dbel431@gmail.com>"
+  ]
+}
