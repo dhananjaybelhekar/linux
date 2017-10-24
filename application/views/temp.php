@@ -116,7 +116,6 @@ if(count($data) > 0)
          
          <!--ng-keypress="todoList.getData(todoList.selected)"
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search">   -->
-          {{states}}
          <input type="text"
          ng-model="selected"
          uib-typeahead="state for state in states | filter:$viewValue | limitTo:8"
