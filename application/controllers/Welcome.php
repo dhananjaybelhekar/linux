@@ -74,9 +74,9 @@ class Welcome extends CI_Controller {
 		$this->db->query("INSERT INTO `log`(`userAgent`, `userIp`, `serchText`) VALUES ('$agent','$ip','$data')");
 		$res = $this->db->query("SELECT * FROM `myapp` where serchText ='$data'")->result_array();
 
-
-		$set['data'] = $res;
-		$set['title'] = ucfirst($data);
-		$this->load->view('temp',$set);
+		echo json_encode($res);
+		// $set['data'] = $res;
+		// $set['title'] = ucfirst($data);
+		// $this->load->view('temp',$set);
 	}
 }

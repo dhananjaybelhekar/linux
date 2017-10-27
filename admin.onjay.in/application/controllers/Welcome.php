@@ -18,7 +18,7 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index($data = 'angular')
+	public function index($data = 'login')
 	{
 		//$this->load->view('welcome_message');
 
@@ -42,12 +42,7 @@ class Welcome extends CI_Controller {
 		$this->load->database();
 		$ip = $this->input->ip_address();
 		$this->db->query("INSERT INTO `log`(`userAgent`, `userIp`, `serchText`) VALUES ('$agent','$ip','$data')");
-		$res = $this->db->query("SELECT * FROM `myapp` where serchText ='$data'")->result_array();
-
-
-		$set['data'] = $res;
-		$set['title'] = ucfirst($data);
-		$this->load->view('temp',$set);
+		$this->load->view('login');
 
 	}
 	public function show($data = 'angular')
@@ -72,11 +67,8 @@ class Welcome extends CI_Controller {
 		$this->load->database();
 		$ip = $this->input->ip_address();
 		$this->db->query("INSERT INTO `log`(`userAgent`, `userIp`, `serchText`) VALUES ('$agent','$ip','$data')");
-		$res = $this->db->query("SELECT * FROM `myapp` where serchText ='$data'")->result_array();
+		id($data == 'login')
+		$this->load->view('login');
 
-
-		$set['data'] = $res;
-		$set['title'] = ucfirst($data);
-		$this->load->view('temp',$set);
 	}
 }
