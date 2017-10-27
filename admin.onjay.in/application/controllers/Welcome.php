@@ -45,7 +45,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('login');
 
 	}
-	public function show($data = 'angular')
+	public function show($data = 'login')
 	{
 		$this->load->library('user_agent');
 		if ($this->agent->is_browser())
