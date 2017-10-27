@@ -3,6 +3,10 @@ bower_components/*
 node_modules/*
 application/cache/*
 !application/cache/index.html
+application/config/*
+.htaccess
+admin.onjay.in/application/config/*
+admin.onjay.in/.htaccess
 
 application/logs/*
 !application/logs/index.html
